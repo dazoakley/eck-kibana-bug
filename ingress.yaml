@@ -1,0 +1,16 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: kibana
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+ rules:
+ - host: kibana.info
+   http:
+     paths:
+     - backend:
+         serviceName: quickstart-kibana
+         servicePort: 5601
