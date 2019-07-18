@@ -4,9 +4,11 @@ minikube start --cpus 4 --memory 8192
 minikube addons enable ingress
 
 kubectl apply -f all-in-one.yaml
+sleep 5
 kubectl apply -f es.yaml
 kubectl apply -f kibana.yaml
 kubectl apply -f ingress.yaml
+sleep 5
 
 MINIKUBE_IP=$(minikube ip)
 PASSWORD=$(kubectl get secret quickstart-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode)
