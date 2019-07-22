@@ -1,7 +1,10 @@
-# Kibana HA bug...
+# Kibana bug...
 
-If we have more than one replica of a kibana instance, we get stuck in a login
-loop - i.e. we can't login.
+You can't access kibana on ECK 0.9.0-rc3 via:
+
+- port-forward to the kibana pod (port 5601)
+- port-forward to the kibana service (port 5601)
+- the ingress
 
 To reproduce, simply run `./run_me.sh` and follow the instructions.
 
